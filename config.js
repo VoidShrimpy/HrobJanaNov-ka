@@ -26,7 +26,7 @@ var CONFIG = {
   // Nebo použijte base64: "data:image/jpeg;base64,ZDE..."
   fotky: [
     "IMG_20220903_143725.jpg",   // název souboru nahraného do stejné složky na GitHubu
-    "IMG_20220910_122800_1.jpg",   // další fotka – odkomentujte přidáním // na začátek
+    //"IMG_20220910_122800_1.jpg",   // další fotka – odkomentujte přidáním // na začátek
   ],
 
   // --- Vzhled ---
