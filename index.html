@@ -312,8 +312,8 @@ h1 {
   // Datumy
   var d = '';
   if (c.narozeni) d += '* ' + c.narozeni;
-  if (c.narozeni && c.umrti) d += '&nbsp;&nbsp;~&nbsp;&nbsp;';
-  if (c.umrti) d += '&#8224; ' + c.umrti;
+  if (c.narozeni && c.umrti) d += '&nbsp;&nbsp;~&nbsp;&nbsp;&#8224;&nbsp;' + c.umrti;
+  else if (c.umrti) d += '&#8224; ' + c.umrti;
   if (d) html += '<div class="dates">' + d + '</div>';
 
   // Venovani
