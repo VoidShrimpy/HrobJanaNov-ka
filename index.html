@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pietní stránka</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.card {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+.symbol {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.fotky { margin-bottom: 24px; }
+
+.fotky img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  margin: 0 auto 12px;
+  display: block;
+  border: 4px solid rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.dates {
+  font-size: 1rem;
+  opacity: 0.65;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.25;
+  margin: 0 auto 20px;
+}
+
+.text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.85;
+  white-space: pre-wrap;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+</div>
+
+<script src="config.js"></script>
+<script>
+(function() {
+  var c = CONFIG;
+
+  document.title = c.jmeno;
+  document.body.style.background   = c.barvaPozadi;
+  document.body.style.color        = c.barvaTextu;
+  document.body.style.fontFamily   = c.pismo;
+
+  var card = document.getElementById('card');
+  var html = '';
+
+  if (c.symbol) {
+    html += '<div class="symbol">' + c.symbol + '</div>';
+  }
+
+  if (c.fotky && c.fotky.length > 0) {
+    html += '<div class="fotky">';
+    for (var i = 0; i < c.fotky.length; i++) {
+      html += '<img src="' + c.fotky[i] + '" alt="' + c.jmeno + '" />';
+    }
+    html += '</div>';
+  }
+
+  html += '<h1>' + c.jmeno + '</h1>';
+
+  var dates = '';
+  if (c.narozeni) dates += '* ' + c.narozeni;
+  if (c.narozeni && c.umrti) dates += ' \u2014 ';
+  if (c.umrti) dates += '\u2020 ' + c.umrti;
+  if (dates) html += '<div class="dates">' + dates + '</div>';
+
+  if (c.text) {
+    html += '<div class="divider"></div>';
+    html += '<div class="text">' + c.text.replace(/\n/g, '<br>') + '</div>';
+  }
+
+  card.innerHTML = html;
+})();
+</script>
+</body>
+</html>
