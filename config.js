@@ -6,7 +6,7 @@ var CONFIG = {
 
   jmeno:    "Jan Novák",
   narozeni: "1. března 1942",
-  umrti:    "14. listopadu 2023",
+  umrti:    "~ 14. listopadu 2023",
   text:     "Navždy v našich srdcích a vzpomínkách.\nByl jsi oporou celé rodiny.\nChybíš nám každý den.",
 
   // Fotky – názvy souborů nahraných do stejné složky na GitHubu
