@@ -8,20 +8,18 @@ var CONFIG = {
   jmeno:    "Jan Novák",
   narozeni: "1. března 1942",
   umrti:    "14. listopadu 2023",
-
-  // Pro nový řádek použijte \n
-  text: "Navždy v našich srdcích a vzpomínkách.\nByl jsi oporou celé rodiny.\nChybíš nám každý den.",
+  text:     "Navždy v našich srdcích a vzpomínkách.\nByl jsi oporou celé rodiny.\nChybíš nám každý den.",
 
   // --- Fotky ---
-  // Názvy souborů nahraných do stejné složky na GitHubu
   fotky: [
     "fotka1.jpg",
     // "fotka2.jpg",
   ],
 
-  // --- Symbol nahoře ---
-  // Moznosti: "kriz" / "kriz2" / "hvezda" / "bez"
-  symbol: "kriz2",
+
+  // ============================================================
+  //  VZHLED
+  // ============================================================
 
   // --- Téma ---
   // "svetly" nebo "tmavy"
@@ -29,16 +27,58 @@ var CONFIG = {
 
   // --- Písmo ---
   // "klasicke" / "elegantni" / "moderni"
-  pismo: "moderni",
+  pismo: "elegantni",
 
-  // --- Barva rámečku ---
-  // "zlata" / "stribrna" / "bila" / "cerna"
-  ramecek: "stribrna",
 
-  // --- Vlastní barvy (nepovinné, přepíší téma) ---
-  // Zakomentujte řádek (přidejte // na začátek) pokud nechcete vlastní barvy
-  // barvaPozadi:  "#f7f3ec",
-  // barvaKarty:   "#ede8df",
-  // barvaTextu:   "#2a2218",
+  // --- Symbol nad fotkou ---
+  // "kriz"   = latinský kříž
+  // "kriz2"  = dvojitý (patriarchální) kříž
+  // "hvezda" = hvězda
+  // "bez"    = žádný symbol
+  symbol: "kriz",
+
+
+  // --- Rohy karty ---
+  // Tvar: "tecka" / "kvetina" / "kriz" / "bez"
+  rohTvar: "tecka",
+
+  // Kde zobrazit rohy: "vsechny" / "jen_nahore" / "jen_dole" / "bez"
+  rohPoloha: "vsechny",
+
+
+  // --- Rámeček stránky (vnější okraj karty) ---
+  // Barva: "zlata" / "stribrna" / "bila" / "cerna"
+  ramecekBarva: "zlata",
+
+  // Styl: "dvojity" / "jednoduchy" / "bez"
+  ramecekStyl: "dvojity",
+
+
+  // --- Čáry (ornamentální dělicí linky) ---
+  // "ano" = zobrazit / "ne" = skrýt
+  cary: "ano",
+
+
+  // --- Hlavička jména ---
+  // Styl: "velka_pismena" / "normalni" / "kurziva"
+  jmenoStyl: "velka_pismena",
+
+  // Podtržení pod jménem: "ano" / "ne"
+  jmenoPodtrzeni: "ano",
+
+
+  // --- Fotky ---
+  // Zaoblení rohů fotky (px): 0 = ostré, 8 = mírné, 20 = hodně
+  fotkaZaobleni: 8,
+
+  // Styl šipek: "kruhy" / "sipky" / "bez"
+  sipkyStyl: "kruhy",
+
+
+  // --- Vlastní barvy (nepovinné) ---
+  // Odkomentujte řádek (smažte //) a zadejte vlastní HEX barvu
+  // barvaPozadi: "#f7f3ec",
+  // barvaKarty:  "#ede8df",
+  // barvaTextu:  "#2a2218",
 
 };
