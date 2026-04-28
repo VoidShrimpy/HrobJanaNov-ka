@@ -13,7 +13,7 @@ var CONFIG = {
   // --- Fotky ---
   fotky: [
     "59549539JFD.JPG",
-    // "fotka2.jpg",
+    // "IMG_20220903_143725.jpg",
   ],
 
   // Ořez fotky: "center" / "top" / "20%" atd.
