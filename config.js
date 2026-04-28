@@ -7,8 +7,8 @@ var CONFIG = {
   // --- Základní údaje ---
   jmeno:    "Marie Nováková",
   narozeni: "1. března 1942",
-  umrti:    "14. listopadu 2023",
-  text:     "Elegantní dáma s laskavým srdcem.\nNavždy v našich vzpomínkách.",
+  umrti:    "14. června 2023",
+  text:     "Navždy v našich vzpomínkách.",
 
   // --- Fotky ---
   fotky: [
@@ -17,10 +17,10 @@ var CONFIG = {
   ],
 
   // Ořez fotky: "center" / "top" / "20%" atd.
-  fotkaOrez: "center",
+  fotkaOrez: "20%",
 
   // Zaoblení rohů fotky (px): 0 = ostré, 4 = mírné, 10 = více
-  fotkaZaobleni: 4,
+  fotkaZaobleni: 3,
 
   // ============================================================
   //  STYL STRÁNKY
@@ -42,7 +42,7 @@ var CONFIG = {
   //  SYMBOL NAD FOTKOU
   // ============================================================
   // "kriz" / "kriz2" / "hvezda" / "lilium" / "bez"
-  symbol: "lilium",
+  symbol: "kriz",
 
   // ============================================================
   //  ODDĚLOVAČ (mezi fotkou a jménem, mezi jménem a textem)
@@ -57,7 +57,7 @@ var CONFIG = {
   //  ROHY KARTY
   // ============================================================
   // "tecka" / "kvetina" / "kriz" / "bez"
-  rohTvar: "kvetina",
+  rohTvar: "tecka",
 
   // "vsechny" / "jen_nahore" / "jen_dole" / "bez"
   rohPoloha: "vsechny",
@@ -72,6 +72,6 @@ var CONFIG = {
   jmenoPodtrzeni: "ne",
 
   // Rámeček kolem jména a datumů: "bez" / "jednoduchy" / "dvojity" / "zlaty"
-  hlavickaRamecek: "jednoduchy",
+  hlavickaRamecek: "zlaty",
 
 };
