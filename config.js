@@ -5,80 +5,73 @@
 var CONFIG = {
 
   // --- Základní údaje ---
-  jmeno:    "Jarmila Nováková",
+  jmeno:    "Marie Nováková",
   narozeni: "1. března 1942",
   umrti:    "14. listopadu 2023",
-  text:     "Navždy v našich srdcích a vzpomínkách.\nByl jsi oporou celé rodiny.\nChybíš nám každý den.",
+  text:     "Elegantní dáma s laskavým srdcem.\nNavždy v našich vzpomínkách.",
 
   // --- Fotky ---
   fotky: [
-    "CBB0B9A6-68F3-43C4-899A-649E1D0053BA.JPG",
+    "fotka1.jpg",
     // "fotka2.jpg",
   ],
 
+  // Ořez fotky: "center" / "top" / "20%" atd.
+  fotkaOrez: "center",
+
+  // Zaoblení rohů fotky (px): 0 = ostré, 4 = mírné, 10 = více
+  fotkaZaobleni: 4,
 
   // ============================================================
-  //  VZHLED
+  //  STYL STRÁNKY
   // ============================================================
+  // "granit"   = tmavý, leštěná žula, zlaté detaily (výchozí)
+  // "mramor"   = světlý, mramorový, zlaté detaily
+  // "noc"      = velmi tmavý, stříbrno-zlatý
+  stil: "granit",
 
-  // --- Téma ---
-  // "svetly" nebo "tmavy"
-  tema: "svetly",
+  // ============================================================
+  //  TVAR KARTY
+  // ============================================================
+  // "oblouk"   = oblá horní hrana jako náhrobek (výchozí)
+  // "rovny"    = rovné hrany, parte styl
+  // "goticky"  = špičatý oblouk nahoře
+  tvarKarty: "oblouk",
 
-  // --- Písmo ---
-  // "klasicke" / "elegantni" / "moderni"
-  pismo: "moderni",
-
-
-  // --- Symbol nad fotkou ---
-  // "kriz"   = latinský kříž
-  // "kriz2"  = dvojitý (patriarchální) kříž
-  // "hvezda" = hvězda
-  // "bez"    = žádný symbol
+  // ============================================================
+  //  SYMBOL NAD FOTKOU
+  // ============================================================
+  // "kriz" / "kriz2" / "hvezda" / "lilium" / "bez"
   symbol: "kriz",
 
+  // ============================================================
+  //  ODDĚLOVAČ (mezi fotkou a jménem, mezi jménem a textem)
+  // ============================================================
+  // "ornament"  = zlatá linka s diamantem uprostřed (výchozí)
+  // "dvojlinka" = dvě tenké linky
+  // "tecky"     = tři malé zlaté diamanty ◆ ◆ ◆
+  // "bez"       = jen mezera
+  oddelovac: "ornament",
 
-  // --- Rohy karty ---
-  // Tvar: "tecka" / "kvetina" / "kriz" / "bez"
+  // ============================================================
+  //  ROHY KARTY
+  // ============================================================
+  // "tecka" / "kvetina" / "kriz" / "bez"
   rohTvar: "kvetina",
 
-  // Kde zobrazit rohy: "vsechny" / "jen_nahore" / "jen_dole" / "bez"
+  // "vsechny" / "jen_nahore" / "jen_dole" / "bez"
   rohPoloha: "vsechny",
 
-
-  // --- Rámeček stránky (vnější okraj karty) ---
-  // Barva: "zlata" / "stribrna" / "bila" / "cerna"
-  ramecekBarva: "stribrna",
-
-  // Styl: "dvojity" / "jednoduchy" / "bez"
-  ramecekStyl: "dvojity",
-
-
-  // --- Čáry (ornamentální dělicí linky) ---
-  // "ano" = zobrazit / "ne" = skrýt
-  cary: "ano",
-
-
-  // --- Hlavička jména ---
-  // Styl: "velka_pismena" / "normalni" / "kurziva"
+  // ============================================================
+  //  JMÉNO A DATUMY
+  // ============================================================
+  // Styl jména: "velka_pismena" / "normalni" / "kurziva"
   jmenoStyl: "velka_pismena",
 
   // Podtržení pod jménem: "ano" / "ne"
-  jmenoPodtrzeni: "ano",
+  jmenoPodtrzeni: "ne",
 
-
-  // --- Fotky ---
-  // Zaoblení rohů fotky (px): 0 = ostré, 8 = mírné, 20 = hodně
-  fotkaZaobleni: 8,
-
-  // Styl šipek: "kruhy" / "sipky" / "bez"
-  sipkyStyl: "kruhy",
-
-
-  // --- Vlastní barvy (nepovinné) ---
-  // Odkomentujte řádek (smažte //) a zadejte vlastní HEX barvu
-  // barvaPozadi: "#f7f3ec",
-  // barvaKarty:  "#ede8df",
-  // barvaTextu:  "#2a2218",
+  // Rámeček kolem jména a datumů: "bez" / "jednoduchy" / "dvojity" / "zlaty"
+  hlavickaRamecek: "bez",
 
 };
