@@ -13,7 +13,7 @@ var CONFIG = {
   // --- Fotky ---
   fotky: [
     "59549539JFD.JPG",
-    // "IMG_20220903_143725.jpg",
+    "IMG_20220903_143725.jpg",
   ],
 
   // Ořez fotky: "center" / "top" / "20%" atd.
@@ -28,7 +28,7 @@ var CONFIG = {
   // "granit"   = tmavý, leštěná žula, zlaté detaily (výchozí)
   // "mramor"   = světlý, mramorový, zlaté detaily
   // "noc"      = velmi tmavý, stříbrno-zlatý
-  stil: "granit",
+  stil: "mramor",
 
   // ============================================================
   //  TVAR KARTY
@@ -36,13 +36,13 @@ var CONFIG = {
   // "oblouk"   = oblá horní hrana jako náhrobek (výchozí)
   // "rovny"    = rovné hrany, parte styl
   // "goticky"  = špičatý oblouk nahoře
-  tvarKarty: "oblouk",
+  tvarKarty: "rovný",
 
   // ============================================================
   //  SYMBOL NAD FOTKOU
   // ============================================================
   // "kriz" / "kriz2" / "hvezda" / "lilium" / "bez"
-  symbol: "kriz",
+  symbol: "lilium",
 
   // ============================================================
   //  ODDĚLOVAČ (mezi fotkou a jménem, mezi jménem a textem)
@@ -51,7 +51,7 @@ var CONFIG = {
   // "dvojlinka" = dvě tenké linky
   // "tecky"     = tři malé zlaté diamanty ◆ ◆ ◆
   // "bez"       = jen mezera
-  oddelovac: "ornament",
+  oddelovac: "dvojlinka",
 
   // ============================================================
   //  ROHY KARTY
@@ -72,6 +72,6 @@ var CONFIG = {
   jmenoPodtrzeni: "ne",
 
   // Rámeček kolem jména a datumů: "bez" / "jednoduchy" / "dvojity" / "zlaty"
-  hlavickaRamecek: "bez",
+  hlavickaRamecek: "jednoduchy",
 
 };
