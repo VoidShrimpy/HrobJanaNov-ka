@@ -7,344 +7,454 @@
 <title>Pietni stranka</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-body.svetly {
-  --bg: #f7f3ec; --bg2: #ede8df; --text: #2a2218; --text-soft: #7a6e60;
-  --gold: #9a7d4a; --gold-light: #c9aa72; --border: #c9b99a; --shadow: rgba(60,40,10,0.13);
+/* ── Stily (granit / mramor / noc) ── */
+body.stil-granit {
+  --bg:         #1a1714;
+  --bg2:        #221e1a;
+  --bg3:        #2a2520;
+  --text:       #e8d5b0;
+  --text-soft:  #9a8a6a;
+  --text-faint: #6a5a3a;
+  --gold:       #c9a85c;
+  --gold-light: #e0c47a;
+  --gold-dark:  #8a6a2a;
+  --border:     #4a3e2e;
+  --shadow:     rgba(0,0,0,0.7);
+  --fo:         #b8a47e;
+  --fi:         #2e2820;
 }
-body.tmavy {
-  --bg: #141210; --bg2: #1e1a16; --text: #ede0cc; --text-soft: #9a8c7a;
-  --gold: #c9a85c; --gold-light: #e0c47a; --border: #4a3e2e; --shadow: rgba(0,0,0,0.5);
+body.stil-mramor {
+  --bg:         #f0ebe2;
+  --bg2:        #e8e0d4;
+  --bg3:        #ddd5c8;
+  --text:       #2a2218;
+  --text-soft:  #6a5e50;
+  --text-faint: #9a8e80;
+  --gold:       #9a7d4a;
+  --gold-light: #c9aa72;
+  --gold-dark:  #6a5020;
+  --border:     #c9b99a;
+  --shadow:     rgba(60,40,10,0.15);
+  --fo:         #b8a47e;
+  --fi:         #ede8df;
 }
-
-body.ramecek-zlata    { --fo: #b8a47e; --fi: #e8dfc8; }
-body.ramecek-stribrna { --fo: #909090; --fi: #d8d8d8; }
-body.ramecek-bila     { --fo: #cccccc; --fi: #f0f0f0; }
-body.ramecek-cerna    { --fo: #333333; --fi: #666666; }
-
-body.pismo-klasicke  { --font-d: 'EB Garamond', Georgia, serif;        --font-b: 'EB Garamond', Georgia, serif; }
-body.pismo-elegantni { --font-d: 'Cinzel', 'Palatino Linotype', serif; --font-b: 'Cormorant Garamond', Georgia, serif; }
-body.pismo-moderni   { --font-d: 'Cormorant Garamond', Georgia, serif; --font-b: 'Cormorant Garamond', Georgia, serif; }
+body.stil-noc {
+  --bg:         #0a0908;
+  --bg2:        #111009;
+  --bg3:        #1a1814;
+  --text:       #f0e8d0;
+  --text-soft:  #b0a080;
+  --text-faint: #706040;
+  --gold:       #d4b06a;
+  --gold-light: #ead080;
+  --gold-dark:  #907030;
+  --border:     #3a3020;
+  --shadow:     rgba(0,0,0,0.9);
+  --fo:         #c0a060;
+  --fi:         #1a1810;
+}
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-b);
   min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
+/* Subtle texture overlay */
 body::before {
-  content: ''; position: fixed; inset: 0;
+  content: '';
+  position: fixed; inset: 0;
   background-image:
-    radial-gradient(ellipse at 20% 20%, rgba(180,150,80,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(180,150,80,0.05) 0%, transparent 60%);
+    radial-gradient(ellipse at 30% 20%, rgba(180,150,80,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 80%, rgba(180,150,80,0.04) 0%, transparent 55%);
   pointer-events: none; z-index: 0;
 }
 
-/* Card */
-.card {
-  position: relative; z-index: 1;
-  max-width: 440px; width: 100%;
-  background: var(--bg2);
-  text-align: center;
-  padding: 40px 32px 36px;
-  animation: fadeIn 1.2s ease both;
-}
-.card.ramecek-dvojity {
-  border: 1px solid var(--fo);
-  outline: 4px solid var(--fi);
-  outline-offset: -8px;
-  box-shadow: 0 0 0 8px var(--fo), 0 8px 40px var(--shadow), inset 0 0 60px rgba(0,0,0,0.03);
-}
-.card.ramecek-jednoduchy {
-  border: 2px solid var(--fo);
-  box-shadow: 0 8px 40px var(--shadow);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Corners */
-.corner {
-  position: absolute;
-  width: 12px; height: 12px;
-  opacity: 0.75;
-}
-.corner.tl { top: 12px;    left: 12px;  }
-.corner.tr { top: 12px;    right: 12px; }
-.corner.bl { bottom: 12px; left: 12px;  }
-.corner.br { bottom: 12px; right: 12px; }
-
-/* Symbol */
-.symbol-wrap {
-  margin-bottom: 20px;
-  display: flex; align-items: center; justify-content: center;
+/* ── Card wrapper (shape container) ── */
+.card-outer {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 100%;
   animation: fadeIn 1.4s ease both;
 }
 
-/* Slider */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* SVG clip path for tombstone shapes */
+.card-outer svg.clip-def {
+  position: absolute;
+  width: 0; height: 0;
+  overflow: hidden;
+}
+
+.card-inner {
+  background: var(--bg2);
+  padding: 44px 36px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shape variants */
+.card-inner.tvar-oblouk {
+  border-radius: 50% 50% 4px 4px / 14% 14% 0 0;
+  border: 1px solid var(--fo);
+  box-shadow:
+    0 0 0 6px var(--bg2),
+    0 0 0 7px var(--fo),
+    0 12px 60px var(--shadow);
+}
+.card-inner.tvar-oblouk::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50% 50% 2px 2px / 13% 13% 0 0;
+  border: 1px solid var(--gold-dark);
+  pointer-events: none;
+}
+
+.card-inner.tvar-rovny {
+  border-radius: 3px;
+  border: 1px solid var(--fo);
+  box-shadow:
+    0 0 0 6px var(--bg2),
+    0 0 0 7px var(--fo),
+    0 12px 60px var(--shadow);
+}
+.card-inner.tvar-rovny::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--gold-dark);
+  pointer-events: none;
+}
+
+.card-inner.tvar-goticky {
+  border-radius: 0 0 4px 4px;
+  clip-path: polygon(50% 0%, 100% 12%, 100% 100%, 0% 100%, 0% 12%);
+  border: none;
+  box-shadow: 0 12px 60px var(--shadow);
+  outline: 1px solid var(--fo);
+}
+
+/* ── Corners ── */
+.corner {
+  position: absolute;
+  width: 14px; height: 14px;
+  z-index: 2; opacity: 0.8;
+}
+.corner.tl { top: 16px; left: 16px; }
+.corner.tr { top: 16px; right: 16px; }
+.corner.bl { bottom: 16px; left: 16px; }
+.corner.br { bottom: 16px; right: 16px; }
+
+/* ── Symbol ── */
+.symbol-wrap {
+  margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 1.6s ease both;
+}
+
+/* ── Slider ── */
 .slider-wrap {
-  position: relative; margin-bottom: 22px;
-  animation: fadeIn 1.5s ease both;
+  position: relative;
+  margin-bottom: 0;
+  animation: fadeIn 1.7s ease both;
 }
 .slider-frame {
-  width: 100%;
-  aspect-ratio: 3/4;
+  width: 100%; aspect-ratio: 3/4;
   overflow: hidden;
   border: 1px solid var(--border);
-  box-shadow: 0 4px 20px var(--shadow);
-  background: var(--bg);
   position: relative;
+  background: var(--bg3);
 }
 .slider-frame img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  opacity: 0; transition: opacity 0.7s ease;
+  opacity: 0; transition: opacity 0.8s ease;
 }
 .slider-frame img.active { opacity: 1; }
 
-/* Arrow styles */
 .arrow {
   position: absolute; top: 50%; transform: translateY(-50%);
-  border: none; cursor: pointer; z-index: 2;
+  background: rgba(0,0,0,0.45);
+  color: var(--gold-light);
+  border: 1px solid var(--gold-dark);
+  width: 32px; height: 32px;
+  border-radius: 50%; font-size: 14px;
+  cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.2s;
+  z-index: 2; transition: background 0.2s;
 }
-.arrow:hover { opacity: 0.8; }
+.arrow:hover { background: rgba(0,0,0,0.7); }
 .arrow.left  { left: 8px; }
 .arrow.right { right: 8px; }
 
-/* kruhy style */
-.arrow-kruhy {
-  background: rgba(0,0,0,0.35);
-  color: #fff;
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  font-size: 15px;
-  backdrop-filter: blur(4px);
-}
-/* sipky style */
-.arrow-sipky {
-  background: none;
-  color: #fff;
-  width: 34px; height: 34px;
-  font-size: 22px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-}
-
-.dots {
-  display: flex; justify-content: center;
-  gap: 6px; margin-top: 8px;
-}
+.dots { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
 .dot {
-  width: 6px; height: 6px; border-radius: 50%;
+  width: 5px; height: 5px; border-radius: 50%;
   background: var(--border); cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
-.dot.active { background: var(--gold); transform: scale(1.3); }
+.dot.active { background: var(--gold); transform: scale(1.4); }
 
-/* Ornament line */
-.ornament {
-  display: flex; align-items: center;
-  gap: 10px; margin: 18px 0 16px;
-  animation: fadeIn 1.7s ease both;
+/* ── Oddělovače ── */
+.sep { margin: 18px 0 16px; display: flex; align-items: center; justify-content: center; gap: 0; }
+.sep.ornament { gap: 8px; }
+.sep.ornament::before, .sep.ornament::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold-dark));
 }
-.ornament::before, .ornament::after {
-  content: ''; flex: 1; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+.sep.ornament-after::before, .sep.ornament-after::after {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), transparent);
 }
-.ornament span { color: var(--gold); font-size: 12px; letter-spacing: 4px; }
+.sep.dvojlinka {
+  flex-direction: column; gap: 3px;
+}
+.sep.dvojlinka .l1 { width: 80px; height: 1px; background: var(--gold); }
+.sep.dvojlinka .l2 { width: 48px; height: 1px; background: var(--gold-dark); }
+.sep.dvojlinka-inv .l1 { width: 48px; }
+.sep.dvojlinka-inv .l2 { width: 80px; }
+.sep.tecky { gap: 7px; }
+.sep.bez { margin: 14px 0; }
 
-/* Name */
+/* ── Hlavička ── */
+.hlavicka { padding: 0; }
+.hlavicka.ram-jednoduchy {
+  border: 1px solid var(--border);
+  padding: 14px 18px 12px; margin: 0 4px;
+}
+.hlavicka.ram-dvojity {
+  border: 1px solid var(--border);
+  outline: 2px solid var(--border);
+  outline-offset: -5px;
+  padding: 16px 20px 14px; margin: 0 4px;
+}
+.hlavicka.ram-zlaty {
+  border: 1px solid var(--gold-dark);
+  box-shadow: inset 0 0 0 3px var(--bg2), inset 0 0 0 4px var(--gold-dark);
+  padding: 16px 20px 14px; margin: 0 4px;
+}
+
+/* ── Jméno ── */
 h1 {
-  font-family: var(--font-d);
-  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  font-family: 'Cinzel', 'Palatino Linotype', serif;
+  font-size: clamp(1.3rem, 4.5vw, 1.8rem);
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--text);
   margin-bottom: 6px;
   line-height: 1.3;
-  animation: fadeIn 1.8s ease both;
+  animation: fadeIn 1.9s ease both;
 }
 h1.velka_pismena { text-transform: uppercase; }
 h1.kurziva       { font-style: italic; text-transform: none; }
 h1.normalni      { text-transform: none; }
 
 .jmeno-linka {
-  width: 60px; height: 1px;
-  background: var(--gold-light);
+  width: 50px; height: 1px;
+  background: var(--gold);
   margin: 6px auto 10px;
 }
 
-/* Dates */
+/* ── Datumy ── */
 .dates {
-  font-family: var(--font-b);
-  font-size: 1.05rem;
-  letter-spacing: 0.1em;
-  color: var(--text-soft);
-  font-style: italic;
-  animation: fadeIn 1.9s ease both;
-}
-
-/* Text */
-.venovani {
-  font-family: var(--font-b);
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1rem;
-  line-height: 1.9;
+  letter-spacing: 0.1em;
   color: var(--text-soft);
   font-style: italic;
   animation: fadeIn 2s ease both;
 }
+
+/* ── Věnování ── */
+.venovani {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-soft);
+  font-style: italic;
+  animation: fadeIn 2.1s ease both;
+}
 </style>
 </head>
 <body>
-<div class="card" id="card"></div>
+<div class="card-outer" id="card-outer">
+  <div class="card-inner" id="card-inner"></div>
+</div>
 
 <script src="config.js"></script>
 <script>
 (function () {
   var c = CONFIG;
 
-  // Defaults
-  var tema      = c.tema === 'tmavy' ? 'tmavy' : 'svetly';
-  var pismo     = ['klasicke','elegantni','moderni'].indexOf(c.pismo) >= 0 ? c.pismo : 'elegantni';
-  var ramBarva  = ['zlata','stribrna','bila','cerna'].indexOf(c.ramecekBarva) >= 0 ? c.ramecekBarva : 'zlata';
-  var ramStyl   = ['dvojity','jednoduchy','bez'].indexOf(c.ramecekStyl) >= 0 ? c.ramecekStyl : 'dvojity';
-
-  document.body.className = tema + ' pismo-' + pismo + ' ramecek-' + ramBarva;
+  var stil  = ['granit','mramor','noc'].indexOf(c.stil) >= 0 ? c.stil : 'granit';
+  var tvar  = ['oblouk','rovny','goticky'].indexOf(c.tvarKarty) >= 0 ? c.tvarKarty : 'oblouk';
+  document.body.className = 'stil-' + stil;
   document.title = c.jmeno || 'Pietni stranka';
 
-  // Custom colors
-  if (c.barvaPozadi) document.body.style.setProperty('--bg',   c.barvaPozadi);
-  if (c.barvaKarty)  document.body.style.setProperty('--bg2',  c.barvaKarty);
-  if (c.barvaTextu)  document.body.style.setProperty('--text', c.barvaTextu);
+  var inner = document.getElementById('card-inner');
+  inner.className = 'card-inner tvar-' + tvar;
 
-  var card = document.getElementById('card');
-  if (ramStyl !== 'bez') card.classList.add('ramecek-' + ramStyl);
+  var gold      = getComputedStyle(document.body).getPropertyValue('--gold').trim()       || '#c9a85c';
+  var goldLight = getComputedStyle(document.body).getPropertyValue('--gold-light').trim() || '#e0c47a';
+  var goldDark  = getComputedStyle(document.body).getPropertyValue('--gold-dark').trim()  || '#8a6a2a';
 
-  // Compute gold after CSS applied
-  var gold = getComputedStyle(document.body).getPropertyValue('--gold').trim() || '#9a7d4a';
-
-  // ── SVG helpers ──────────────────────────────────────────
-
-  function svgKriz(size, col) {
-    var s = size || 22; col = col || gold; var w = 3;
-    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">'
-      +'<rect x="'+(11-w/2)+'" y="1" width="'+w+'" height="20" rx="1" fill="'+col+'"/>'
-      +'<rect x="1" y="'+(7-w/2)+'" width="20" height="'+w+'" rx="1" fill="'+col+'"/>'
+  /* ── SVG helpers ── */
+  function svgKriz(s, col) {
+    s = s||22; col = col||gold; var w = 2.8;
+    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 22 22" fill="none">'
+      +'<rect x="'+(11-w/2)+'" y="1" width="'+w+'" height="20" rx="1.2" fill="'+col+'"/>'
+      +'<rect x="1" y="'+(7-w/2)+'" width="20" height="'+w+'" rx="1.2" fill="'+col+'"/>'
       +'</svg>';
   }
-
-  function svgKriz2(size, col) {
-    var s = size || 24; col = col || gold; var w = 2.5;
-    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">'
+  function svgKriz2(s, col) {
+    s=s||24; col=col||gold; var w=2.4;
+    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none">'
       +'<rect x="'+(12-w/2)+'" y="1" width="'+w+'" height="22" rx="1" fill="'+col+'"/>'
       +'<rect x="2" y="'+(8-w/2)+'" width="20" height="'+w+'" rx="1" fill="'+col+'"/>'
-      +'<rect x="5" y="'+(14-w/2)+'" width="14" height="'+w+'" rx="1" fill="'+col+'"/>'
+      +'<rect x="6" y="'+(14-w/2)+'" width="12" height="'+w+'" rx="1" fill="'+col+'"/>'
       +'</svg>';
   }
-
-  function svgHvezda(size, col) {
-    var s = size || 22; col = col || gold;
-    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 22 22" fill="'+col+'" xmlns="http://www.w3.org/2000/svg">'
+  function svgHvezda(s, col) {
+    s=s||22; col=col||gold;
+    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 22 22" fill="'+col+'">'
       +'<polygon points="11,1 13.5,8 21,8 15,13 17.5,20 11,15.5 4.5,20 7,13 1,8 8.5,8"/>'
       +'</svg>';
   }
+  function svgLilium(s, col) {
+    s=s||24; col=col||gold;
+    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="'+col+'">'
+      +'<path d="M12 2 C12 2 10 7 7 8 C5 9 3 8 3 8 C3 8 5 11 8 11 C9 11 10 10.5 11 10 L11 22 L13 22 L13 10 C14 10.5 15 11 16 11 C19 11 21 8 21 8 C21 8 19 9 17 8 C14 7 12 2 12 2Z"/>'
+      +'</svg>';
+  }
 
-  function svgRohTecka(col) {
+  function svgDiamant(s, col) {
+    s=s||8; col=col||gold;
+    return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 8 8" fill="'+col+'">'
+      +'<polygon points="4,0.5 7.5,4 4,7.5 0.5,4"/>'
+      +'</svg>';
+  }
+
+  function cornerSvg(typ, col) {
     col = col || gold;
-    return '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">'
-      +'<circle cx="6" cy="6" r="2" fill="'+col+'"/>'
-      +'<circle cx="1.5" cy="1.5" r="1" fill="'+col+'" opacity="0.6"/>'
-      +'<circle cx="10.5" cy="1.5" r="1" fill="'+col+'" opacity="0.6"/>'
-      +'<circle cx="1.5" cy="10.5" r="1" fill="'+col+'" opacity="0.6"/>'
-      +'<circle cx="10.5" cy="10.5" r="1" fill="'+col+'" opacity="0.6"/>'
-      +'</svg>';
+    if (typ === 'kriz') {
+      var w = 1.4;
+      return '<svg width="14" height="14" viewBox="0 0 14 14" fill="none">'
+        +'<rect x="'+(7-w/2)+'" y="1" width="'+w+'" height="12" rx="0.7" fill="'+col+'"/>'
+        +'<rect x="1" y="'+(5-w/2)+'" width="12" height="'+w+'" rx="0.7" fill="'+col+'"/>'
+        +'</svg>';
+    }
+    if (typ === 'kvetina') {
+      return '<svg width="14" height="14" viewBox="0 0 14 14">'
+        +'<circle cx="7" cy="7" r="1.8" fill="'+col+'"/>'
+        +'<circle cx="7" cy="3" r="1.3" fill="'+col+'" opacity="0.7"/>'
+        +'<circle cx="7" cy="11" r="1.3" fill="'+col+'" opacity="0.7"/>'
+        +'<circle cx="3" cy="7" r="1.3" fill="'+col+'" opacity="0.7"/>'
+        +'<circle cx="11" cy="7" r="1.3" fill="'+col+'" opacity="0.7"/>'
+        +'</svg>';
+    }
+    if (typ === 'tecka') {
+      return '<svg width="14" height="14" viewBox="0 0 14 14">'
+        +'<circle cx="7" cy="7" r="2.2" fill="'+col+'"/>'
+        +'<circle cx="2" cy="2" r="1" fill="'+col+'" opacity="0.5"/>'
+        +'<circle cx="12" cy="2" r="1" fill="'+col+'" opacity="0.5"/>'
+        +'<circle cx="2" cy="12" r="1" fill="'+col+'" opacity="0.5"/>'
+        +'<circle cx="12" cy="12" r="1" fill="'+col+'" opacity="0.5"/>'
+        +'</svg>';
+    }
+    return '';
   }
 
-  function svgRohKvetina(col) {
-    col = col || gold;
-    return '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">'
-      +'<circle cx="6" cy="6" r="1.5" fill="'+col+'"/>'
-      +'<circle cx="6" cy="2.5" r="1.2" fill="'+col+'" opacity="0.7"/>'
-      +'<circle cx="6" cy="9.5" r="1.2" fill="'+col+'" opacity="0.7"/>'
-      +'<circle cx="2.5" cy="6" r="1.2" fill="'+col+'" opacity="0.7"/>'
-      +'<circle cx="9.5" cy="6" r="1.2" fill="'+col+'" opacity="0.7"/>'
-      +'</svg>';
+  /* ── Oddělovač ── */
+  function sepHtml(typ, inv) {
+    var cls = inv ? ' style="margin-top:18px"' : '';
+    if (typ === 'ornament') {
+      var gradDir = inv
+        ? 'linear-gradient(90deg,'+goldDark+','+goldLight+',transparent)'
+        : 'linear-gradient(90deg,transparent,'+goldLight+','+goldDark+')';
+      var gradDir2 = inv
+        ? 'linear-gradient(90deg,transparent,'+goldLight+','+goldDark+')'
+        : 'linear-gradient(90deg,'+goldDark+','+goldLight+',transparent)';
+      return '<div class="sep ornament"'+cls+'>'
+        +'<div style="flex:1;height:1px;background:'+gradDir+'"></div>'
+        +svgDiamant(9, gold)
+        +'<div style="flex:1;height:1px;background:'+gradDir2+'"></div>'
+        +'</div>';
+    }
+    if (typ === 'dvojlinka') {
+      var cls2 = inv ? 'dvojlinka-inv' : 'dvojlinka';
+      return '<div class="sep '+cls2+'"'+cls+'>'
+        +'<div class="l1"></div><div class="l2"></div></div>';
+    }
+    if (typ === 'tecky') {
+      return '<div class="sep tecky"'+cls+'>'
+        +svgDiamant(6, goldDark)
+        +svgDiamant(9, gold)
+        +svgDiamant(6, goldDark)
+        +'</div>';
+    }
+    return '<div class="sep bez"'+cls+'></div>';
   }
 
-  function svgRohKriz(col) {
-    col = col || gold; var w = 1.5;
-    return '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">'
-      +'<rect x="'+(6-w/2)+'" y="1" width="'+w+'" height="10" rx="0.5" fill="'+col+'"/>'
-      +'<rect x="1" y="'+(4.5-w/2)+'" width="10" height="'+w+'" rx="0.5" fill="'+col+'"/>'
-      +'</svg>';
-  }
-
-  function getRohSvg() {
-    var t = c.rohTvar || 'tecka';
-    if (t === 'kvetina') return svgRohKvetina(gold);
-    if (t === 'kriz')    return svgRohKriz(gold);
-    if (t === 'bez')     return '';
-    return svgRohTecka(gold);
-  }
-
-  // ── Build page ───────────────────────────────────────────
-
+  /* ── Build HTML ── */
   var html = '';
-  var rohSvg  = getRohSvg();
+  var rohTyp  = c.rohTvar   || 'kvetina';
   var rohPos  = c.rohPoloha || 'vsechny';
+  var cs      = cornerSvg(rohTyp, gold);
 
-  if (rohSvg) {
+  if (cs && rohPos !== 'bez') {
     if (rohPos === 'vsechny' || rohPos === 'jen_nahore') {
-      html += '<span class="corner tl">'+rohSvg+'</span>';
-      html += '<span class="corner tr">'+rohSvg+'</span>';
+      html += '<span class="corner tl">'+cs+'</span>';
+      html += '<span class="corner tr">'+cs+'</span>';
     }
     if (rohPos === 'vsechny' || rohPos === 'jen_dole') {
-      html += '<span class="corner bl">'+rohSvg+'</span>';
-      html += '<span class="corner br">'+rohSvg+'</span>';
+      html += '<span class="corner bl">'+cs+'</span>';
+      html += '<span class="corner br">'+cs+'</span>';
     }
   }
 
   // Symbol
   var sym = c.symbol || 'kriz';
   if (sym !== 'bez') {
-    var symSvg = sym === 'kriz2'   ? svgKriz2(24, gold)
-               : sym === 'hvezda'  ? svgHvezda(22, gold)
-               :                     svgKriz(22, gold);
+    var symSvg = sym === 'kriz2'  ? svgKriz2(26, gold)
+               : sym === 'hvezda' ? svgHvezda(22, gold)
+               : sym === 'lilium' ? svgLilium(24, gold)
+               : svgKriz(22, gold);
     html += '<div class="symbol-wrap">'+symSvg+'</div>';
   }
 
-  // Photos
-  var fotky = [];
-  if (c.fotky && c.fotky.length) {
-    for (var x = 0; x < c.fotky.length; x++) {
-      if (c.fotky[x]) fotky.push(c.fotky[x]);
-    }
-  }
-
-  var zaobleni = (typeof c.fotkaZaobleni === 'number') ? c.fotkaZaobleni : 8;
-  var sipky    = c.sipkyStyl || 'kruhy';
+  // Fotky
+  var fotky    = (c.fotky||[]).filter(Boolean);
+  var zaobleni = typeof c.fotkaZaobleni === 'number' ? c.fotkaZaobleni : 4;
+  var orez     = c.fotkaOrez || 'center';
+  var oddelTyp = c.oddelovac || 'ornament';
 
   if (fotky.length > 0) {
     html += '<div class="slider-wrap">';
     html += '<div class="slider-frame" id="sf" style="border-radius:'+zaobleni+'px">';
     for (var i = 0; i < fotky.length; i++) {
-      html += '<img src="'+fotky[i]+'" alt=""'+(i===0?' class="active"':'')+' loading="lazy">';
+      html += '<img src="'+fotky[i]+'" alt=""'+(i===0?' class="active"':'')+' style="object-position:center '+orez+'">';
     }
     html += '</div>';
-    if (fotky.length > 1 && sipky !== 'bez') {
-      var cls = 'arrow-' + sipky;
-      html += '<button class="arrow left '+cls+'" onclick="slide(-1)">&#8592;</button>';
-      html += '<button class="arrow right '+cls+'" onclick="slide(1)">&#8594;</button>';
+    if (fotky.length > 1) {
+      html += '<button class="arrow left" onclick="slide(-1)">&#8592;</button>';
+      html += '<button class="arrow right" onclick="slide(1)">&#8594;</button>';
       html += '<div class="dots">';
       for (var j = 0; j < fotky.length; j++) {
         html += '<div class="dot'+(j===0?' active':'')+'" onclick="goTo('+j+')"></div>';
@@ -354,40 +464,33 @@ h1.normalni      { text-transform: none; }
     html += '</div>';
   }
 
-  // Ornament
-  if (c.cary !== 'ne') {
-    html += '<div class="ornament"><span>&middot; &middot; &middot;</span></div>';
-  } else {
-    html += '<div style="margin-top:16px"></div>';
-  }
+  // Oddělovač 1
+  html += sepHtml(oddelTyp, false);
 
-  // Name
+  // Hlavička
+  var hlavRam  = c.hlavickaRamecek || 'bez';
+  var hlavCls  = 'hlavicka' + (hlavRam !== 'bez' ? ' ram-'+hlavRam : '');
+  html += '<div class="'+hlavCls+'">';
   var jStyl = ['velka_pismena','normalni','kurziva'].indexOf(c.jmenoStyl) >= 0 ? c.jmenoStyl : 'velka_pismena';
   html += '<h1 class="'+jStyl+'">'+(c.jmeno||'')+'</h1>';
-  if (c.jmenoPodtrzeni !== 'ne') {
-    html += '<div class="jmeno-linka"></div>';
-  }
+  if (c.jmenoPodtrzeni === 'ano') html += '<div class="jmeno-linka"></div>';
 
-  // Dates
   var d = '';
   if (c.narozeni) d += '* ' + c.narozeni;
   if (c.narozeni && c.umrti) d += '&nbsp;&nbsp;~&nbsp;&nbsp;&#8224;&nbsp;' + c.umrti;
-  else if (c.umrti)          d += '&#8224; ' + c.umrti;
+  else if (c.umrti) d += '&#8224; ' + c.umrti;
   if (d) html += '<div class="dates">'+d+'</div>';
+  html += '</div>';
 
-  // Text
+  // Oddělovač 2 + věnování
   if (c.text) {
-    if (c.cary !== 'ne') {
-      html += '<div class="ornament" style="margin-top:16px"><span>&middot; &middot; &middot;</span></div>';
-    } else {
-      html += '<div style="margin-top:14px"></div>';
-    }
+    html += sepHtml(oddelTyp, true);
     html += '<div class="venovani">'+c.text.replace(/\n/g,'<br>')+'</div>';
   }
 
-  card.innerHTML = html;
+  inner.innerHTML = html;
 
-  // ── Slider logic ─────────────────────────────────────────
+  // Slider
   var cur    = 0;
   var imgs   = document.querySelectorAll('#sf img');
   var dotsEl = document.querySelectorAll('.dot');
@@ -402,13 +505,12 @@ h1.normalni      { text-transform: none; }
     if (dotsEl[cur]) dotsEl[cur].classList.add('active');
   }
   window.goTo  = goTo;
-  window.slide = function(dir) { goTo(cur + dir); };
+  window.slide = function(d) { goTo(cur+d); };
 
-  // Swipe
   var tx = null;
   document.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; });
   document.addEventListener('touchend',   function(e) {
-    if (tx === null) return;
+    if (tx===null) return;
     var dx = e.changedTouches[0].clientX - tx;
     if (Math.abs(dx) > 40) window.slide(dx < 0 ? 1 : -1);
     tx = null;
