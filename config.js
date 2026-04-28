@@ -12,7 +12,7 @@ var CONFIG = {
 
   // --- Fotky ---
   fotky: [
-    "fotka1.jpg",
+    "59549539JFD.JPG",
     // "fotka2.jpg",
   ],
 
